@@ -16,7 +16,7 @@ def welcome():
 	return render_template('index.html')
 	
 	
-@app.route('/Recipe')
+@app.route('/recipe')
 def display_recipe():
 	recipeID = request.args.get('id')
 	cursor = connection.cursor()
@@ -24,7 +24,7 @@ def display_recipe():
 	query = ("SELECT * FROM Recipe WHERE ID=" + recipeID)
 	cursor.execute(query)
 	recipe = cursor.fetchall()
-	query = ("SELECT * FROM Step WHERE ID=" + recipeID)
+	query = ("SELECT * FROM Step WHERE RecipeID=" + recipeID)
 	cursor.execute(query)
 	steps = cursor.fetchall()
 	#TODO: add new template
