@@ -23,12 +23,12 @@ def display_recipe():
 	#TODO: replace with SPROC
 	query = ("SELECT * FROM Recipe WHERE ID=" + recipeID)
 	cursor.execute(query)
-	recipe = cursor.fetchall()
+	recipeR = cursor.fetchall()
 	query = ("SELECT * FROM Step WHERE RecipeID=" + recipeID)
 	cursor.execute(query)
-	steps = cursor.fetchall()
+	stepsR = cursor.fetchall()
 	#TODO: add new template
-	return render_template('recipe.html')
+	return render_template('recipe.html', recipe=recipeR[0], steps=stepsR)
 	
 	
 if __name__ == '__main__':

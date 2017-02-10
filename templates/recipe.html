@@ -2,6 +2,9 @@
 	<head>
 	</head>
 	<body>
-		<h1>Hello</h1>
+		<h1>{{ recipe }}</h1>
+		{ % step in steps % }
+			<h1>{{step[3]}}</h1>
+		{ % endfor % }
 	</body>
 </html>
