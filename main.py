@@ -37,7 +37,7 @@ def search_results():
 	query = ("SEARCH('" + searchString + "')") #TODO put in SPROC
 	cursor.execute(query)
 	matches = cursor.fetchall()
-	return render_template('results.html, recipes=matches)
+	return render_template('results.html', recipes=matches)
 
 
 if __name__ == '__main__':
