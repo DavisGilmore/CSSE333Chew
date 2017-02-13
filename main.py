@@ -73,7 +73,7 @@ def new_user_page():
 	first = request.args.get('first')
 	last = request.args.get('last')
 	cursor = connection.cursor()
-	query = ("INSERT INTO User (EmailAddress, Username, '\
+	query = ("INSERT INTO Users (EmailAddress, Username, '\
 				'FirstName, LastName) '\
 				'VALUES ('" + email + "', '" + user + "', '" + first + "', '" + last + "')")
 	cursor.execute(query)
