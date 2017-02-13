@@ -1,0 +1,15 @@
+<html>
+	<head>
+	<body bgcolor = "#99ff66">
+	</body>
+	<p><a href="index.html">Home</a>
+	<p><a href="userLogin.html">Login</a>
+	</head>
+	<body>
+	<center>
+		{% for recipe in recipes %}
+			<h1>{{recipe[1]}}</h1>
+		{% endfor %}
+	</center>
+	</body>
+</html>

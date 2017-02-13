@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<body bgcolor = "#99ff66">
+</body>
+
+
+</head>
+<p><a href="userLogin.html">Login</a>
+<p><a href="userPage.html">Your Page</a>
+<body id="page-top" class="index">
+
+
+   
+	
+		<!-- Joe Input -->
+	<div class="container main">
+    <div class="header">
+		<center>
+		<h1>Chew</h1>
+		<img src="{{url_for('static', filename='Apple.png')}}"  alt="apple" style="width:304px;height:330px;">
+        <h1>Search For A Recipe</h1>
+		</center>
+        
+		<form class="">
+		<center>
+            Search for your recipie
+            <div class="input-group">
+				<input class="form-control" placeholder="Name Of Recipe">
+                <input class="form-control" placeholder="Caloreis">
+				<input class="form-control" placeholder="Time">
+				<span class="input-group-btn">
+		        <button class="btn btn-submit" type="submit">Search</button>
+            </span>
+            </div>
+			
+		</center>
+        </form>
+    </div>
+    <hr>
+
+	</div>
+	
+	<div class="container main">
+	<div class="header">
+        <h1>Results </h1>
+	</div>
+	</div>
+ <div class="data-table-container container" style="padding-top: 2em">
+        <center>
+		<table class="table table-hover">
+		
+            <thead>
+            <tr>
+                <th>Name&emsp;&emsp;</th>
+
+                <th>Calories&emsp;&emsp;</th>
+
+                <th>Cooking Time&emsp;&emsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <a class="title" href="">Shrimp Scampini</a>
+                </td>
+                <td>400</td>
+                <td>30 mins</td>
+            </tr>
+
+            <tr>
+                <td>
+                    <a class="title" href="">Corn Beef and Cabage</a>
+                </td>
+                <td>600</td>
+                <td>6 hours</td>
+            </tr>
+
+			<tr>
+                <td>
+                    <a class="title" href="">My Roomate</a>
+                </td>
+                <td>110,000</td>
+                <td>12 hours</td>
+            </tr>
+         
+        </table>
+		</center>  
+    </div>
+	
+
+</body>
+
+</html>
