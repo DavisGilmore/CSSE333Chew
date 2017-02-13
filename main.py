@@ -75,8 +75,7 @@ def new_user_page():
 	cursor = connection.cursor()
 	query = ("INSERT INTO User (EmailAddress, Username, '\
 				'FirstName, LastName) '\
-				'VALUES ('" + email + "', '" + user + 
-				"', '" + first + "', '" + last + "')")
+				'VALUES ('" + email + "', '" + user + "', '" + first + "', '" + last + "')")
 	return render_template('newUser.html', email=email, user=user, first=first, last=last)
 
 
