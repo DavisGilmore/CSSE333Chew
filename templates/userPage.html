@@ -5,12 +5,13 @@
 	</head>
 	<p><a href="index.html">Home</a>
 	<p><a href="userLogin.html">Login</a>
-	<p><a href="userPage.html">Your Page</a>
 	<body>
 	<center>
-		<h1>{{ recipe }}</h1>
-		{% for step in steps %}
-			<h1>{{step[3]}}</h1>
+	
+		<h1>Your Page </h1>
+		<h1><i>"Your Favorite Recipies" </i></h1>
+		{% for recipe in recipes %}
+			<h1>{{recipe[1]}}</h1>
 		{% endfor %}
 	</center>
 	</body>

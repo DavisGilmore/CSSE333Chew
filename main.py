@@ -40,5 +40,32 @@ def search_results():
 	return render_template('results.html', recipes=matches)
 
 
+@app.route('/ingredient')
+def display_ingredients():
+	return render_template('ingredient.html')
+
+
+@app.route('/tool')
+def display_tools():
+	return render_template('tool.html')
+
+
+@app.route('/login')
+def user_login():
+	return render_template('userLogin.html')
+
+
+@app.route('/user')
+def personal_page():
+	userID = request.args.get('email')
+	cursor = connection.cursor()
+	query = ("SELECT ID, Name FROM Recipe, UserFavorsRecipe '\
+			'WHERE Recipe.ID = UserFavorsRecipe.RecipeID '\
+			'AND UserFavorsRecipe.UserEmail='"email"'")
+	cursor.execute(query)
+	user = cursor.fetchall()
+	return render_template('userPage.html', recipes=user)
+
+
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', port=8080, debug=True)
