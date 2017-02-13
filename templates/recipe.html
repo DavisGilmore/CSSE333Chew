@@ -3,9 +3,9 @@
 	<body bgcolor = "#99ff66">
 	</body>
 	</head>
-	<p><a href="index.html">Home</a>
-	<p><a href="userLogin.html">Login</a>
-	<p><a href="userPage.html">Your Page</a>
+	<p><a href="{{ url_for('welcome') }}">Home</a>
+	<p><a href="{{ url_for('user_login') }}">Login</a>
+	<p><a href="{{ url_for('personal_page') }}">Your Page</a>
 	<body>
 	<center>
 		<h1>{{ recipe[1] }}</h1>
