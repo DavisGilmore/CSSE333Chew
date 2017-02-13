@@ -65,6 +65,19 @@ def personal_page():
 	cursor.execute(query)
 	user = cursor.fetchall()
 	return render_template('userPage.html', recipes=user)
+	
+@app.route('/new_user')
+def new_user_page():
+	email = request.args.get('email')
+	user = request.args.get('username')
+	first = request.args.get('first')
+	last = request.args.get('last')
+	cursor = connection.cursor()
+	query = ("INSERT INTO User (EmailAddress, Username, '\
+				'FirstName, LastName) '\
+				'VALUES ('" + email + "', '" + user + "', '"
+				+ first + "', '" + last + "')")
+	return render_template('newUser.html', email=email, user=user, first=first, last=last)
 
 
 if __name__ == '__main__':
