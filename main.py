@@ -77,7 +77,19 @@ def personal_page():
 	cursor.execute(query)
 	user = cursor.fetchall()
 	return render_template('userPage.html', recipes=user, email=userID)
+
+
+@app.route('create_user', methods=['GET', 'POST'])
+def create_new_user():
+	if request.method == 'POST':
+		email = request.form.get('email')
+		user = request.form.get('username')
+		first = request.form.get('firstName')
+		last = request.form.get('lastName')
+		return redirect( url_for('new_user_page',email=email, username=user, first=first, last=last))
+	return render_template('createUser.html')
 	
+
 @app.route('/new_user')
 def new_user_page():
 	email = request.args.get('email')
