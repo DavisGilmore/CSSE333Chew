@@ -90,7 +90,7 @@ def new_user_page():
 
 @app.route('/login_fail')
 def incorrect_login_page():
-	return render_template('incorrecLogin.html')
+	return render_template('incorrectLogin.html')
 
 
 if __name__ == '__main__':
