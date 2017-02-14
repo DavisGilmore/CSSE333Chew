@@ -75,7 +75,7 @@ def personal_page():
 			"AND UserFavorsRecipe.UserEmail=" + "'" + userID + "'")
 	cursor.execute(query)
 	user = cursor.fetchall()
-	return render_template('userPage.html', recipes=user)
+	return render_template('userPage.html', recipes=user, email=email)
 	
 @app.route('/new_user')
 def new_user_page():
