@@ -58,7 +58,7 @@ def user_login():
 		query = ("SELECT EmailAddress FROM Users WHERE Users.EmailAddress=" + "'" + email + "'")
 		cursor.execute(query)
 		matches = cursor.fetchall()
-		return redirect( url_for('personal_page',email=email))
+		return redirect( url_for('personal_page',email=matches[0]))
 	return render_template('userLogin.html')
 
 
