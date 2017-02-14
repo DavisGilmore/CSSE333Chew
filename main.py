@@ -79,7 +79,7 @@ def personal_page():
 	return render_template('userPage.html', recipes=user, email=userID)
 
 
-@app.route('create_user', methods=['GET', 'POST'])
+@app.route('/create_user', methods=['GET', 'POST'])
 def create_new_user():
 	if request.method == 'POST':
 		email = request.form.get('email')
