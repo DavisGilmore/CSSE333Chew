@@ -6,14 +6,16 @@
 		</body>
 
 	</head>
-	<p><a href="{{ url_for('user_login') }}">Login</a>
-	<p><a href="{{ url_for('personal_page', email=email) }}">Your Page</a>
+	<p><a href="{{ url_for('user_login') }}">Login</a></p>
+	<p><a href="{{ url_for('personal_page', email=email) }}">Your Page</a></p>
 
-	<body>
-		<b>New user created!</b>
-		<p>email: {{email}}</p>
-		<p>username: {{user}}</p>
-		<p>first name: {{first}}</p>
-		<p>last name: {{last}}</p>
-	</body>
+	<center>
+		<body>
+			<b>New user created!</b>
+			<p>email: {{email}}</p>
+			<p>username: {{user}}</p>
+			<p>first name: {{first}}</p>
+			<p>last name: {{last}}</p>
+		</body>
+	</center>
 </html>
