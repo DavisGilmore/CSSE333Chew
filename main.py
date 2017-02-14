@@ -67,7 +67,7 @@ def user_login():
 @app.route('/user')
 def personal_page():
 	userID = request.args.get('email')
-	if not userID
+	if not userID:
 		return redirect( url_for('welcome'))
 	cursor = connection.cursor()
 	query = ("SELECT ID, Name FROM Recipe, UserFavorsRecipe " \
