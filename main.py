@@ -13,7 +13,8 @@ connection = pypyodbc.connect('DRIVER={SQL Server};'
 @app.route('/')
 @app.route('/index')
 def welcome():
-	return render_template('index.html')
+	userEmail=request.args.get('email')
+	return render_template('index.html',email=userEmail)
 
 
 @app.route('/recipe')
