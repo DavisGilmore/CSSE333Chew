@@ -7,7 +7,7 @@ app = Flask(__name__)
 connection = pypyodbc.connect('DRIVER={SQL Server};'
                               'SERVER=chewserver.database.windows.net;'
 							  'DATABASE=Chew;'
-                              'UID=emelyewu;PWD=Chew$erver15only$erver')
+                              'UID=emelyewu;PWD=StupidPa$$word2017')
 
 
 @app.route('/')
