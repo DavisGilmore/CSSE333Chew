@@ -50,8 +50,15 @@ def display_tools():
 	return render_template('tool.html')
 
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def user_login():
+	if request.method == 'POST':
+		email = request.form.get('email')
+		cursor = connection.cursor()
+		query = ("SELECT EmailAddress FROM Users WHERE Users.EmailAddress=" + "'" + email + "'")
+		cursor.execute(query)
+		matches = cursor.fetchall()
+		return redirect( url_for('personal_page',email=email))
 	return render_template('userLogin.html')
 
 
