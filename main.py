@@ -58,6 +58,8 @@ def user_login():
 		query = ("SELECT EmailAddress FROM Users WHERE Users.EmailAddress=" + "'" + email + "'")
 		cursor.execute(query)
 		matches = cursor.fetchall()
+		if not matches:
+			return redirect( url_for('incorrect_login_page'))
 		return redirect( url_for('personal_page',email=matches[0]))
 	return render_template('userLogin.html')
 
@@ -84,6 +86,11 @@ def new_user_page():
 	cursor.execute(query)
 	cursor.connection.commit()
 	return render_template('newUser.html', email=email, user=user, first=first, last=last)
+
+
+@app.route('/login_fail')
+def incorrect_login_page():
+	return render_template('incorrecLogin.html')
 
 
 if __name__ == '__main__':
