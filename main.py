@@ -73,7 +73,7 @@ def personal_page():
 	cursor = connection.cursor()
 	query = ("SELECT RecipeID, Name FROM Recipe, UserFavorsRecipe " \
 			"WHERE Recipe.RecipeID = UserFavorsRecipe.RecipeID " \
-			"AND UserFavorsRecipe.UserEmail=" + "'" + userID + "'")
+			"AND UserFavorsRecipe.EmailAddress=" + "'" + userID + "'")
 	cursor.execute(query)
 	user = cursor.fetchall()
 	return render_template('userPage.html', recipes=user, email=userID)
