@@ -24,39 +24,37 @@ Released   : 2009-07-28
 		
         <div id="header">
             <ul>
-           	   	<li><a href="#">Home</a></li>
-               	<li><a href="#">Products</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+           	   	<li><a href="{{ url_for('user_login') }}">Login</a></li>
+               	<li><a href="{{ url_for('personal_page', email=email) }}">Your Page</a></li>
+                <li><a href="{{ url_for('all_recipes', email=email) }}">View all Recipes</a></li>
+				
             </ul>
-            <h1>Transparent Blue</h1>
+            <h1>Chew</h1>
+			<img src="{{url_for('static', filename='Apple.png')}}"  alt="apple" style="width:304px;height:330px;">
+			
         </div>
   <div class="dotted_line"></div>
         <div id="main">
+			<h1>Search For A Recipe</h1>
+			</center>
         
-        	<div class="main_left">
-            	<img src="sample_image.jpg" alt="Transparent Blue by BryantSmith.com" />
-                <h1>Slogan Here</h1>
-                <h3>a longer sub slogan goes right here.</h3>
+		<form class="">
+		<center>
+            Search for your recipie
+            <div class="input-group">
+				<input class="form-control" placeholder="Name Of Recipe">
+                <input class="form-control" placeholder="Calories">
+				<input class="form-control" placeholder="Time">
+				<span class="input-group-btn">
+		        <button class="btn btn-submit" type="submit">Search</button>
+            </span>
             </div>
-            
-           	<div class="main_right">
-                <h2>H2 Text</h2>
-                
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas est mi, consequat eu viverra vel, mattis quis risus. Sed iaculis nunc a enim malesuada vel ornare ante euismod. Donec euismod, enim malesuada gravida sollicitudin, mauris ante commodo massa, a egestas leo erat at lorem. Aenean justo sapien, porta tempor placerat in, iaculis id leo. Quisque non erat ut nibh semper feugiat hendrerit sed neque. Vestibulum eget lectus a erat accumsan ornare non sed nulla. Vestibulum vitae turpis vitae dolor hendrerit pretium quis in odio. Praesent scelerisque, purus ut venenatis elementum, nisl felis ultrices ante, vitae rhoncus lacus massa ut enim. In sed mi arcu. Quisque ultricies pellentesque velit, feugiat viverra est pharetra ac. Quisque id risus eget mi gravida vehicula eget in neque. Integer consectetur, mauris a venenatis dictum, nibh urna tincidunt purus, eu rhoncus ligula erat ac eros. Integer vehicula, arcu a adipiscing sollicitudin, neque erat mollis risus, eget porttitor magna ligula ac justo. Nullam lobortis tortor vitae erat commodo sodales eget non velit. Duis erat tellus, cursus eu egestas id, auctor sit amet lectus. Suspendisse pellentesque ante a leo dignissim at dignissim nibh consectetur. Vestibulum feugiat mattis velit eu luctus. Aliquam nulla leo, ullamcorper feugiat posuere vitae, fringilla eu nibh. </p>
-
-            </div>
-            
-           	<div class="main_bottom"></div>
+			
+		</center>
             
         </div>
         
-        
-        <div class="dotted_line"></div>
-        <div id="footer">
-        <p>
-        <a href="http://www.bryantsmith.com">website design</a></p>
+      
       </div>
         
         </div>
