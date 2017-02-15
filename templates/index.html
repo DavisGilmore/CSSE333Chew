@@ -1,62 +1,72 @@
- <!--
-Design by Bryant Smith
-http://www.bryantsmith.com
-http://www.aszx.net
-Released absolutely free to use anywhere, all I ask is that you kindly leave the link back at the bottom.
-
-Name       : A Subtle Orange
-Description: One column (w/ one micro column for links)
-Version    : 1.0
-Released   : 20081008
--->
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-	<title>Chew</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel = "stylesheet" type="text/css" href= "{{ url_for('static',filename='asubtleorange.css') }}">
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+</style>
 </head>
-<body>
-<div id="page"> 
-    <div id="header">
-    	<div class="title">Chew</div>
-        <div class="subText">Good Food - Good Mood</div>
-    </div>
-    <div id="bar">
-        <div class="menuLink"><a href="{{ url_for('user_login') }}">Login</a></div>
-        <div class="menuLink"><a href="{{ url_for('personal_page', email=email) }}">Your Page</a></div>
-        <div class="menuLink"><a href="{{ url_for('all_recipes', email=email) }}">All Recipes</a></div>
- 
-    </div>
-    <div id="pageContent">
-		
-    <div class="articleTitle">Search For A Recipes</div>
-        
-        
-      <div class="articleContent">
+<body bgcolor = "#f2c07b">
+
+<ul>
+  <li><a class="active" href="{{ url_for('user_login') }}">Login</a></li>
+  <li><a href="{{ url_for('user_login') }}">Your Page</a></li>
+  <li><a href="{{ url_for('user_login') }}">View All Recipes</a></li>
+</ul>
+
+
+
+
+   
+	
+		<!-- Joe Input -->
+	<div class="container main">
+    <div class="header">
 		<center>
-		
-	   <div class="input-group">
+		<h1>Chew</h1>
+		<img src="{{url_for('static', filename='Apple.png')}}"  alt="apple" style="width:304px;height:330px;">
+        <h1>Search For A Recipe</h1>
+		</center>
+        
+		<form class="">
+		<center>
+            Search for your recipie
+            <div class="input-group">
 				<input class="form-control" placeholder="Name Of Recipe">
                 <input class="form-control" placeholder="Calories">
 				<input class="form-control" placeholder="Time">
 				<span class="input-group-btn">
 		        <button class="btn btn-submit" type="submit">Search</button>
-				<center>
-			<img src="{{url_for('static', filename='Apple.png')}}"  alt="apple" style="width:76px;height:82px;">
-    
-		</center>
             </span>
             </div>
+			
 		</center>
-      
-   	</div>
-
-
+        </form>
     </div>
+    
+	
 
-</div>
-      
 </body>
+
 </html>
