@@ -1,12 +1,40 @@
+<!DOCTYPE html>
 <html>
-	<head>
-	<body bgcolor = "#f2c07b">
-	</body>
-	</head>
-	<p><a href="{{ url_for('welcome') }}">Home</a>
-	<p><a href="{{ url_for('user_login') }}">Login</a>
-	<p><a href="{{ url_for('personal_page') }}">Your Page</a>
-	<body>
+<head>
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+</style>
+</head>
+<body bgcolor = "#f2c07b">
+
+<ul>
+  <li><a  href="{{ url_for('welcome') }}">Home</a></li>
+  <li><a href="{{ url_for('user_login') }}">Login</a></li>
+  <li><a href="{{ url_for('personal_page') }}">Your Page</a></li>
+</ul>
+
 	<center>
 		<h1>{{ recipe[1] }}</h1>
 		<h2>Calories: {{recipe[5]}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbspTime: {{recipe[4]}} minutes</h2>
@@ -17,8 +45,8 @@
 		<h2> </h2>
 	</center>
 	<h1> Ingredients </h1>
-		{% for Ingredient in Ingredient %}
-			<h4>{{Ingredient[1]}}</h4>   <!--Ingredient name, Ingredient Unit, Amounnt, and Additional Discription-->
+		{% for ingredient in ingredients %}
+			<h4>{{ingredient[0]}}&nbsp&nbsp{{ingredient[2]}}&nbsp&nbsp{{ingredient[3]}}&nbsp&nbsp{{ingredient[1]}}</h4>   <!--Ingredient name, Ingredient Unit, Amounnt, and Additional Discription-->
 		{% endfor %}
 	
 	<h1> Steps</h1>
