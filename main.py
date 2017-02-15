@@ -26,10 +26,15 @@ def display_recipe():
 		query = ("EXEC favors " + "'" + email + "', '" + recipeID + "'")
 		cursor.execute(query)
 		cursor.connection.commit()
+		errorval = cursor.fetchall()
+		if errorval == 1 || errorval == 2:
+			return redirect( url_for('favors_failure'))
 		cursor = connection.cursor()
 		query = ("EXEC get_recipe_name" + "'" + recipeID + "'")
 		cursor.execute(query)
 		recipe_name = cursor.fetchall()
+		if errorval == 3:
+			return redirect( url_for('already_favors', recipeName=recipe_name[0], recipeID=recipeID, email=email) )
 		return redirect( url_for('add_favors', recipeName=recipe_name[0], recipeID=recipeID, email=email) )
 	cursor = connection.cursor()
 	query = ("EXEC get_recipe " + recipeID)
@@ -131,6 +136,19 @@ def add_favors():
 	recipeName = request.args.get('recipeName')
 	recipeID = request.args.get('recipeID')
 	return render_template('addedFavors.html', email=email, recipeName=recipeName, recipeID=recipeID)
+
+
+@app.route('/already_favors')
+def add_favors():
+	email = request.args.get('email')
+	recipeName = request.args.get('recipeName')
+	recipeID = request.args.get('recipeID')
+	return render_template('alreadyFavors.html', email=email, recipeName=recipeName, recipeID=recipeID)
+
+
+@app.route('/failed_favors')
+def favors_failure():
+	return fender_template('favorsFailCatch.html')
 
 
 if __name__ == '__main__':

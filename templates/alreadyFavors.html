@@ -1,0 +1,20 @@
+<html>
+	<head>
+	<body bgcolor = "#f2c07b">
+	</body>
+	</head>
+	<body>
+		<center>
+		<div>
+		<h1>{{recipeName}}</h1>
+		</div>
+		<div>
+		<h1>You Silly Goose! This is already in your favors list</h1>
+		</div>
+		<div>
+		<h1><a href="{{ url_for('display_recipe',email=email, id=recipeID) }}">Return to {{recipeName}}</a></h1>
+		
+		
+		</center>
+	</body>
+</html>
