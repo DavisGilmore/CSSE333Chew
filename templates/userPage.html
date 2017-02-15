@@ -1,17 +1,18 @@
 <html>
 	<head>
-	<body bgcolor = "#99ff66">
+	<body bgcolor = "#f2c07b">
 	</body>
 	</head>
-	<p><a href="{{ url_for('welcome', email=email) }}">Home</a>
-	<p><a href="{{ url_for('user_login') }}">Login</a>
+	<p><a href="index.html">Home</a>
+	<p><a href="userLogin.html">Login</a>
 	<body>
 	<center>
 	
 		<h1>Your Page </h1>
 		<h1><i>"Your Favorite Recipies" </i></h1>
-		{% for recipe in recipes %}
-			<h1>{{recipe[1]}}</h1>
+		<h1>{{ recipe }}</h1>
+		{% for step in steps %}
+			<h1>{{step[3]}}</h1>
 		{% endfor %}
 	</center>
 	</body>
