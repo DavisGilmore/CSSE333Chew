@@ -24,7 +24,7 @@
 					</tr>
 				</thead>
 				<tbody>
-				{{% for recipe in recipes %}}
+				{% for recipe in recipes %}
 					<tr>
 						<td>
 							<a class="title" href="{{ url_for('display_recipe', recipe=recipe) }}">{{recipe[1]}}</a>
@@ -33,7 +33,7 @@
 						<td>{{recipe[4]}}</td>
 						<td>none</td>
 					</tr>
-				{{% end for %}}
+				{% end for %}
 				</tbody>
 			</table>
 		</center>

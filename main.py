@@ -22,7 +22,7 @@ def display_recipe():
 	recipeID = request.args.get('id')
 	cursor = connection.cursor()
 	#TODO: replace with SPROC
-	query = ("SELECT * FROM Recipe WHERE ID=" + recipeID)
+	query = ("SELECT * FROM Recipe WHERE RecipeID=" + recipeID)
 	cursor.execute(query)
 	recipeR = cursor.fetchall()
 	query = ("SELECT * FROM Step WHERE RecipeID=" + recipeID)
