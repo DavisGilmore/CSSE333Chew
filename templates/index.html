@@ -16,7 +16,7 @@ Released   : 2009-07-28
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!--link rel="stylesheet" type="text/css" href="style.css" /-->
 <link rel = "stylesheet" type="text/css"  href= "{{ url_for('static',filename='style.css') }}">
-<title>Transparent Blue by Bryant Smith</title>
+<title>Chew</title>
 </head>
 
 <body>
@@ -30,32 +30,38 @@ Released   : 2009-07-28
 				
             </ul>
             <h1>Chew</h1>
-			<img src="{{url_for('static', filename='Apple.png')}}"  alt="apple" style="width:304px;height:330px;">
 			
         </div>
   <div class="dotted_line"></div>
         <div id="main">
-			<h1>Search For A Recipe</h1>
-			</center>
         
-		<form class="">
-		<center>
-            Search for your next best recipie
-            <div class="input-group">
+        	<div class="main_left">
+            	<img src="{{url_for('static', filename='Apple.png')}}"  alt="apple" style="width:304px;height:330px;">
+			
+                <h1>Search For A Recipe </h1>
+                <h3>Good Food - Good Moood</h3>
+            </div>
+            
+           	<div class="main_right">
+                <div class="input-group">
 				<input class="form-control" placeholder="Name Of Recipe">
                 <input class="form-control" placeholder="Calories">
 				<input class="form-control" placeholder="Time">
 				<span class="input-group-btn">
 		        <button class="btn btn-submit" type="submit">Search</button>
-            </span>
+				</span>
+				</div>
             </div>
-			
-		</center>
+            
+           	<div class="main_bottom"></div>
             
         </div>
         
-
-      
+        
+        <div class="dotted_line"></div>
+        <div id="footer">
+        <p>
+        <a href="http://www.bryantsmith.com">website design</a></p>
       </div>
         
         </div>
