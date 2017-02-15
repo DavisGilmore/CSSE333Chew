@@ -9,12 +9,14 @@
 	<body>
 	<center>
 		<h1>{{ recipe[1] }}</h1>
-		<h2>Calories: {{recipe[5]}} Time: {{recipe[4]}} minutes</h2>
+		<h2>Calories: {{recipe[5]}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbspTime: {{recipe[4]}} minutes</h2>
+		<h2><i>"A recipe is a story that ends with a good meal." </i></h2>
+		<button type="button" onclick="alert('Hello world!')">Favor this Recipe!</button>
 		<h2> </h2>
 	</center>
 	<h1> Steps</h1>
 		{% for step in steps %}
-			<h4>{{step[0]}}{{step[2]}}</h4>
+			<h4>{{step[0]}}.&nbsp&nbsp{{step[2]}}</h4>
 		{% endfor %}
 	
 	</body>
