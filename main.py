@@ -22,10 +22,10 @@ def display_recipe():
 	recipeID = request.args.get('id')
 	cursor = connection.cursor()
 	#TODO: replace with SPROC
-	query = ("SELECT * FROM Recipe WHERE RecipeID=" + recipeID)
+	query = ("EXEC get_recipe" + recipeID)
 	cursor.execute(query)
 	recipeR = cursor.fetchall()
-	query = ("SELECT * FROM Step WHERE RecipeID=" + recipeID)
+	query = ("EXEC get_steps" + recipeID)
 	cursor.execute(query)
 	stepsR = cursor.fetchall()
 	return render_template('recipe.html', recipe=recipeR[0], steps=stepsR)
@@ -56,7 +56,7 @@ def user_login():
 	if request.method == 'POST':
 		email = request.form.get('email')
 		cursor = connection.cursor()
-		query = ("SELECT EmailAddress FROM UserInfo WHERE UserInfo.EmailAddress=" + "'" + email + "'")
+		query = ("EXEC email_confirm" + "'" + email + "'")
 		cursor.execute(query)
 		matches = cursor.fetchall()
 		if not matches:
@@ -71,9 +71,7 @@ def personal_page():
 	if not userID:
 		return redirect( url_for('welcome'))
 	cursor = connection.cursor()
-	query = ("SELECT Recipe.RecipeID, Recipe.Name FROM Recipe, UserFavorsRecipe " \
-			"WHERE Recipe.RecipeID = UserFavorsRecipe.RecipeID " \
-			"AND UserFavorsRecipe.EmailAddress=" + "'" + userID + "'")
+	query = ("EXEC get_favored_recipes" + "'" + userID + "'")
 	cursor.execute(query)
 	user = cursor.fetchall()
 	return render_template('userPage.html', recipes=user, email=userID)
