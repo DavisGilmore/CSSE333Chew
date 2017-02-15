@@ -17,11 +17,21 @@ def welcome():
 	return render_template('index.html',email=userEmail)
 
 
-@app.route('/recipe')
+@app.route('/recipe', methods=['GET','POST'])
 def display_recipe():
 	recipeID = request.args.get('id')
+	if request.method == 'POST'
+		email = request.args.get('email')
+		cursor = connection.cursor()
+		query = ("INSERT INTO UserFavorsRecipe (EmailAddress, RecipeID) VALUES(" + "'" + email + "', '" + recipeID + "')")
+		cursor.execute(query)
+		cursor.connection.commit()
+		cursor = connection.cursor()
+		query = ("SELECT Recipe.Name FROM Recipe WHERE RecipeID=" + "'" + recipeID + "'")
+		cursor.execute(query)
+		recipe_name = cursor.fetchall()
+		return redirect( url_for('add_favors', recipeName=recipe_results, recipeID=recipeID, email=email) )
 	cursor = connection.cursor()
-	#TODO: replace with SPROC
 	query = ("EXEC get_recipe " + recipeID)
 	cursor.execute(query)
 	recipeR = cursor.fetchall()
@@ -113,6 +123,14 @@ def all_recipes():
 	query = ("EXEC all_recipes")
 	recipes = cursor.execute(query)
 	return render_template('recipeResults.html', email=email, recipes=recipes)
+
+
+@app.route('/favors')
+def add_favors():
+	email = request.args.get('email')
+	recipeName = request.args.get('recipeName')
+	recipeID = request.args.get('recipeID')
+	return render_template('addedFavors.html', email=email, recipeName=recipeName, recipeID=recipeID)
 
 
 if __name__ == '__main__':

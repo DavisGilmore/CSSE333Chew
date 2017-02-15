@@ -11,7 +11,9 @@
 		<h1>{{ recipe[1] }}</h1>
 		<h2>Calories: {{recipe[5]}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbspTime: {{recipe[4]}} minutes</h2>
 		<h2><i>"A recipe is a story that ends with a good meal." </i></h2>
-		<button type="button" onclick="alert('This recipe has been favored.')">Favor this Recipe!</button>
+		<form method="POST" role="form">
+			<button type="submit">Favor this Recipe!</button>
+		</form>
 		<h2> </h2>
 	</center>
 	<h1> Ingredients </h1>
