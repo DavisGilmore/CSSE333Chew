@@ -31,8 +31,8 @@ li a:hover {
 
 <ul>
   <li><a class="active" href="{{ url_for('user_login') }}">Login</a></li>
-  <li><a href="{{ url_for('user_login') }}">Your Page</a></li>
-  <li><a href="{{ url_for('user_login') }}">View All Recipes</a></li>
+  <li><a href="{{ url_for('personal_page', email=email) }}">Your Page</a></li>
+  <li><a href="{{ url_for('all_recipes', email=email) }}">View All Recipes</a></li>
 </ul>
 
 
