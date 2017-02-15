@@ -26,18 +26,21 @@ Released   : 20081008
     <div id="bar">
         <div class="menuLink"><a href="{{ url_for('user_login') }}">Login</a></div>
         <div class="menuLink"><a href="{{ url_for('personal_page', email=email) }}">Your Page</a></div>
-        <div class="menuLink"><a href="{{ url_for('all_recipes', email=email) }}">View All Recipes</a></div>
+        <div class="menuLink"><a href="{{ url_for('all_recipes', email=email) }}">All Recipes</a></div>
  
     </div>
     <div id="pageContent">
     
     <div class="articleTitle">Search For A Recipes</div>
-        
+        <center>
+			<img src="{{url_for('static', filename='Apple.png')}}"  alt="apple" style="width:304px;height:330px;">
+    
+		</center>
         
       <div class="articleContent">
 		<center>
-		<img src="{{url_for('static', filename='Apple.png')}}"  alt="apple" style="width:304px;height:330px;">
-       <div class="input-group">
+		
+	   <div class="input-group">
 				<input class="form-control" placeholder="Name Of Recipe">
                 <input class="form-control" placeholder="Calories">
 				<input class="form-control" placeholder="Time">
@@ -53,7 +56,6 @@ Released   : 20081008
     </div>
 
 </div>
-    <div id="footer"><a href="http://www.aszx.net">web development</a> by <a href="http://www.bryantsmith.com">bryant smith</a></div>
-        
+      
 </body>
 </html>
