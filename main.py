@@ -30,7 +30,7 @@ def display_recipe():
 		query = ("SELECT Recipe.Name FROM Recipe WHERE RecipeID=" + "'" + recipeID + "'")
 		cursor.execute(query)
 		recipe_name = cursor.fetchall()
-		return redirect( url_for('add_favors', recipeName=recipe_results, recipeID=recipeID, email=email) )
+		return redirect( url_for('add_favors', recipeName=recipe_name, recipeID=recipeID, email=email) )
 	cursor = connection.cursor()
 	query = ("EXEC get_recipe " + recipeID)
 	cursor.execute(query)
