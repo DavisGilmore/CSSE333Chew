@@ -27,7 +27,7 @@
 				{% for recipe in recipes %}
 					<tr>
 						<td>
-							<a class="title" href="{{ url_for('display_recipe', recipe=recipe) }}">{{recipe[1]}}</a>
+							<a class="title" href="{{ url_for('display_recipe', recipe=recipe[0]) }}">{{recipe[1]}}</a>
 						</td>
 						<td>{{recipe[5]}}</td>
 						<td>{{recipe[4]}}</td>
