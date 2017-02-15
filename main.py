@@ -71,7 +71,7 @@ def personal_page():
 	if not userID:
 		return redirect( url_for('welcome'))
 	cursor = connection.cursor()
-	query = ("SELECT ID, Name FROM Recipe, UserFavorRecipe " \
+	query = ("SELECT RecipeID, Name FROM Recipe, UserFavorRecipe " \
 			"WHERE Recipe.RecipeID = UserFavorsRecipe.RecipeID " \
 			"AND UserFavorsRecipe.UserEmail=" + "'" + userID + "'")
 	cursor.execute(query)
