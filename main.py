@@ -26,7 +26,7 @@ def display_recipe():
 		query = ("EXEC favors " + "'" + email + "', '" + recipeID + "'")
 		cursor.execute(query)
 		cursor.connection.commit()
-		errorval = cursor.fetchall()
+		errorval = cursor.fetchone()[0]
 		if errorval == 1 or errorval == 2:
 			return redirect( url_for('favors_failure'))
 		cursor = connection.cursor()
