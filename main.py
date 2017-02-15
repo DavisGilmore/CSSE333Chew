@@ -56,7 +56,7 @@ def user_login():
 	if request.method == 'POST':
 		email = request.form.get('email')
 		cursor = connection.cursor()
-		query = ("SELECT EmailAddress FROM UserInfo WHERE Users.EmailAddress=" + "'" + email + "'")
+		query = ("SELECT EmailAddress FROM UserInfo WHERE UserInfo.EmailAddress=" + "'" + email + "'")
 		cursor.execute(query)
 		matches = cursor.fetchall()
 		if not matches:
