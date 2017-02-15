@@ -46,12 +46,15 @@ def display_recipe():
 
 @app.route('/results')
 def search_results():
-	searchString = request.args.get('for')
+	email = request.args.get('email')
+	recipe = request.args.get('recipe')
+	calorie = request.args.get('calorie')
+	time = request.args.get('time')
 	cursor = connection.cursor()
-	query = ("SEARCH('" + searchString + "')") #TODO put in SPROC
+	query = ("EXEC searchRecipe" + "'" + recipe + "', '" + calorie + "', '" + time + "'")
 	cursor.execute(query)
 	matches = cursor.fetchall()
-	return render_template('results.html', recipes=matches)
+	return render_template('recipeResults.html', email=email, recipes=matches)
 
 
 @app.route('/ingredient')
