@@ -20,7 +20,7 @@ def welcome():
 @app.route('/recipe', methods=['GET','POST'])
 def display_recipe():
 	recipeID = request.args.get('id')
-	if request.method == 'POST'
+	if request.method == 'POST':
 		email = request.args.get('email')
 		cursor = connection.cursor()
 		query = ("INSERT INTO UserFavorsRecipe (EmailAddress, RecipeID) VALUES(" + "'" + email + "', '" + recipeID + "')")
