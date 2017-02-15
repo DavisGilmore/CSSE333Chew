@@ -25,16 +25,11 @@ def display_recipe():
 		cursor = connection.cursor()
 		query = ("EXEC favors " + "'" + email + "', '" + recipeID + "'")
 		cursor.execute(query)
-		errorval = cursor.fetchwarnings()
 		cursor.connection.commit()
-		if errorval == 1 or errorval == 2:
-			return redirect( url_for('favors_failure'))
 		cursor = connection.cursor()
 		query = ("EXEC get_recipe_name" + "'" + recipeID + "'")
 		cursor.execute(query)
 		recipe_name = cursor.fetchall()
-		if errorval == 3:
-			return redirect( url_for('already_favors', recipeName=recipe_name[0], recipeID=recipeID, email=email) )
 		return redirect( url_for('add_favors', recipeName=recipe_name[0], recipeID=recipeID, email=email) )
 	cursor = connection.cursor()
 	query = ("EXEC get_recipe " + recipeID)
