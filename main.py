@@ -56,7 +56,7 @@ def user_login():
 	if request.method == 'POST':
 		email = request.form.get('email')
 		cursor = connection.cursor()
-		query = ("SELECT EmailAddress FROM Users WHERE Users.EmailAddress=" + "'" + email + "'")
+		query = ("SELECT EmailAddress FROM UserInfo WHERE Users.EmailAddress=" + "'" + email + "'")
 		cursor.execute(query)
 		matches = cursor.fetchall()
 		if not matches:
@@ -71,8 +71,8 @@ def personal_page():
 	if not userID:
 		return redirect( url_for('welcome'))
 	cursor = connection.cursor()
-	query = ("SELECT ID, Name FROM Recipe, UserFavorsRecipe " \
-			"WHERE Recipe.ID = UserFavorsRecipe.RecipeID " \
+	query = ("SELECT ID, Name FROM Recipe, UserFavorRecipe " \
+			"WHERE Recipe.RecipeID = UserFavorsRecipe.RecipeID " \
 			"AND UserFavorsRecipe.UserEmail=" + "'" + userID + "'")
 	cursor.execute(query)
 	user = cursor.fetchall()
@@ -97,7 +97,7 @@ def new_user_page():
 	first = request.args.get('first')
 	last = request.args.get('last')
 	cursor = connection.cursor()
-	query = ("INSERT INTO Users (EmailAddress, Username, FirstName, LastName) VALUES (" + "'" + email + "', '" + user + "', '" + first + "', '" + last + "'" + ")")
+	query = ("EXEC insert_new_user '" + email + "', '" + user + "', '" + first + "', '" + last + "'")
 	cursor.execute(query)
 	cursor.connection.commit()
 	return render_template('newUser.html', email=email, user=user, first=first, last=last)
@@ -112,7 +112,7 @@ def incorrect_login_page():
 def all_recipes():
 	email = request.args.get('email')
 	cursor = connection.cursor()
-	query = ("SELECT * FROM Recipe")
+	query = ("EXEC all_recipes")
 	recipes = cursor.execute(query)
 	return render_template('recipeResults.html', email=email, recipes=recipes)
 
