@@ -108,5 +108,14 @@ def incorrect_login_page():
 	return render_template('incorrectLogin.html')
 
 
+@app.route('/all_recipes')
+def all_recipes():
+	email = request.args.get('email')
+	cursor = connection.cursor()
+	query = ("SELECT * FROM Recipe")
+	recipes = cursor.execute(query)
+	return render_template('recipeResults.html', email=email, recipes=recipes)
+
+
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', port=8080, debug=True)

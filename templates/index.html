@@ -9,6 +9,7 @@
 </head>
 <p><a href="{{ url_for('user_login') }}">Login</a>
 <p><a href="{{ url_for('personal_page', email=email) }}">Your Page</a>
+<p><a href="{{ url_for('all_recipes'), email=email) }}">View all Recipes</a>
 <body id="page-top" class="index">
 
 
@@ -28,7 +29,7 @@
             Search for your recipie
             <div class="input-group">
 				<input class="form-control" placeholder="Name Of Recipe">
-                <input class="form-control" placeholder="Caloreis">
+                <input class="form-control" placeholder="Calories">
 				<input class="form-control" placeholder="Time">
 				<span class="input-group-btn">
 		        <button class="btn btn-submit" type="submit">Search</button>
@@ -84,7 +85,8 @@
                 <td>110,000</td>
                 <td>12 hours</td>
             </tr>
-         
+			</tbody>
+		 
         </table>
 		</center>  
     </div>
