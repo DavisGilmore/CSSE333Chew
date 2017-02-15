@@ -38,7 +38,10 @@ def display_recipe():
 	query = ("EXEC get_steps " + recipeID)
 	cursor.execute(query)
 	stepsR = cursor.fetchall()
-	return render_template('recipe.html', recipe=recipeR[0], steps=stepsR)
+	query = ("EXEC get_ingredient_details")
+	cursor.execute(query)
+	ingredients = cursor.fetchall()
+	return render_template('recipe.html', recipe=recipeR[0], steps=stepsR, ingredients=ingredients)
 
 
 @app.route('/results')
