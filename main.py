@@ -139,7 +139,7 @@ def add_favors():
 
 
 @app.route('/already_favors')
-def add_favors():
+def already_favors():
 	email = request.args.get('email')
 	recipeName = request.args.get('recipeName')
 	recipeID = request.args.get('recipeID')
