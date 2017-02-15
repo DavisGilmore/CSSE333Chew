@@ -11,8 +11,13 @@ connection = pypyodbc.connect('DRIVER={SQL Server};'
 
 
 @app.route('/')
-@app.route('/index')
+@app.route('/index', methods=['GET','POST'])
 def welcome():
+	if request.method == 'POST':
+		recipe = request.form.get('recipe')
+		calories = request.form.get('calories')
+		time = request.form.get('time')
+		return redirect( url_for( 'search_results', email=email, recipe=recipe, calorie=calories, time=time))
 	userEmail=request.args.get('email')
 	return render_template('index.html',email=userEmail)
 
