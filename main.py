@@ -35,7 +35,7 @@ def display_recipe():
 		query = ("EXEC email_confirm " + "'" + email + "'")
 		cursor.execute(query)
 		em = cursor.fetchall()
-		if not rec and em:
+		if not ( rec and em):
 			return redirect( url_for('favors_failure'))
 		cursor = connection.cursor()
 		query = ("EXEC favors_exists " + "'" + email + "', '" + recipeID + "'")
@@ -174,7 +174,7 @@ def already_favors():
 
 @app.route('/failed_favors')
 def favors_failure():
-	return fender_template('favorsFailCatch.html')
+	return render_template('favorsFailCatch.html')
 
 
 if __name__ == '__main__':
