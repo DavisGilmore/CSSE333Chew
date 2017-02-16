@@ -25,6 +25,8 @@ def welcome():
 @app.route('/recipe', methods=['GET','POST'])
 def display_recipe():
 	email = request.args.get('email')
+	if not email:
+		email = ""
 	recipeID = request.args.get('id')
 	if request.method == 'POST':
 		cursor = connection.cursor()
