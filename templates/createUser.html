@@ -30,8 +30,8 @@ li a:hover {
 <body bgcolor = "#f2c07b">
 
 <ul>
-  <li><a class= href="{{ url_for('welcome') }}">Home</a></li>
-  <li><a class= href="{{ url_for('user_login') }}">Login</a></li>
+  <li><a href="{{ url_for('welcome') }}">Home</a></li>
+  <li><a href="{{ url_for('user_login') }}">Login</a></li>
 </ul>
 
 	<center>
@@ -55,17 +55,17 @@ li a:hover {
 			</span>
 		</form>
 		<div>
-			{% if emailInvalid == 1 %}
+			{% if (emailInvalid == 1) %}
 				<h1><font color="red">Email invalid, must contain '@'</font></h1>
 			{% endif %}
 		</div>
 		<div>
-			{% if emailTaken == 1 %}
+			{% if (emailTaken == 1) %}
 				<h1><font color="red">Email taken, choose another email</font></h1>
 			{% endif %}
 		</div>
 		<div>
-			{% if usernameTaken == 1 %}
+			{% if (usernameTaken == 1) %}
 				<h1><font color="red">Username taken, choose another username</font></h1>
 			{% endif %}
 		</div>
