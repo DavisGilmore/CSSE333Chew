@@ -39,7 +39,7 @@ li a:hover {
 		<h1><i>"Your Favorite Recipies" </i></h1>
 		<h1>{{ recipe }}</h1>
 		{% for recipe in recipes %}
-			<h1>{{recipe[1]}}</h1>
+			<h1><a href="{{ url_for('display_recipe',email=email, id=recipe[0]) }}">{{recipe[1]}}</a></h1>
 		{% endfor %}
 	</center>
 	</body>
