@@ -24,9 +24,9 @@ def welcome():
 
 @app.route('/recipe', methods=['GET','POST'])
 def display_recipe():
+	email = request.args.get('email')
 	recipeID = request.args.get('id')
 	if request.method == 'POST':
-		email = request.args.get('email')
 		cursor = connection.cursor()
 		query = ("EXEC favors " + "'" + email + "', '" + recipeID + "'")
 		cursor.execute(query)
@@ -46,7 +46,7 @@ def display_recipe():
 	query = ("EXEC get_ingredient_details " + "'" + recipeID + "'")
 	cursor.execute(query)
 	ingredients = cursor.fetchall()
-	return render_template('recipe.html', recipe=recipeR[0], steps=stepsR, ingredients=ingredients)
+	return render_template('recipe.html', recipe=recipeR[0], steps=stepsR, ingredients=ingredients, email=email)
 
 
 @app.route('/results')
