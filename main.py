@@ -128,11 +128,7 @@ def create_new_user():
 		emailInvalid = 0
 		emailTaken = 0
 		usernameTaken = 0
-		cursor = connection.cursor()
-		query = ("EXEC is_email " + "'" + email + "'")
-		cursor.execute(query)
-		res = cursor.fetchall()
-		if res:
+		if "@" not in email:
 			emailInvalid = 1
 		cursor = connection.cursor()
 		query = ("EXEC email_confirm " + "'" + email + "'")
