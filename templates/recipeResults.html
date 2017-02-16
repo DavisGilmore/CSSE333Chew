@@ -30,9 +30,9 @@ li a:hover {
 <body bgcolor = "#f2c07b">
 
 <ul>
-
+  <li><a href="{{ url_for('welcome', email=email) }}">Home</a></li>
   <li><a href="{{ url_for('user_login') }}">Login</a></li>
-  <li><a href="{{ url_for('personal_page') }}">Your Page</a></li>
+  <li><a href="{{ url_for('personal_page', email=email) }}">Your Page</a></li>
 </ul>
 	<body>
 		<center>
