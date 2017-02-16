@@ -54,6 +54,21 @@ li a:hover {
 				<button class="btn btn-submit" type="submit">Create</button>
 			</span>
 		</form>
+		<div>
+			{% if emailInvalid == 1 %}
+				<h1><font color="red">Email invalid, must contain '@'</font></h1>
+			{% endif %}
+		</div>
+		<div>
+			{% if emailTaken == 1 %}
+				<h1><font color="red">Email taken, choose another email</font></h1>
+			{% endif %}
+		</div>
+		<div>
+			{% if usernameTaken == 1 %}
+				<h1><font color="red">Username taken, choose another username</font></h1>
+			{% endif %}
+		</div>
 	</center>
 	
 </html>

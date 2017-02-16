@@ -125,6 +125,29 @@ def create_new_user():
 		user = request.form.get('username')
 		first = request.form.get('firstName')
 		last = request.form.get('lastName')
+		emailInvalid = 0
+		emailTaken = 0
+		usernameTaken = 0
+		cursor = connection.cursor()
+		query = ("EXEC is_email " + "'" + email + "'")
+		cursor.execute(query)
+		res = cursor.fetchall()
+		if res:
+			emailInvalid = 1
+		cursor = connection.cursor()
+		query = ("EXEC email_confirm " + "'" + email + "'")
+		cursor.execute(query)
+		res = cursor.fetchall()
+		if res:
+			emailTaken = 1
+		cursor = connection.cursor()
+		query = ("EXEC username_confirm " + "'" + user + "'")
+		cursor.execute(query)
+		res = cursor.fetchall()
+		if res:
+			usernameTaken = 1
+		if (emailInvalid or emailTaken or usernameTaken)
+			return redirect( url_for('create_new_user', emailInvalid=emailInvalid, emailTaken=emailTaken, usernameTaken=usernameTaken))
 		return redirect( url_for('new_user_page',email=email, username=user, first=first, last=last))
 	return render_template('createUser.html')
 	
