@@ -146,7 +146,7 @@ def create_new_user():
 		res = cursor.fetchall()
 		if res:
 			usernameTaken = 1
-		if (emailInvalid or emailTaken or usernameTaken)
+		if (emailInvalid or emailTaken or usernameTaken):
 			return redirect( url_for('create_new_user', emailInvalid=emailInvalid, emailTaken=emailTaken, usernameTaken=usernameTaken))
 		return redirect( url_for('new_user_page',email=email, username=user, first=first, last=last))
 	return render_template('createUser.html')
