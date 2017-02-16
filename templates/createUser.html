@@ -55,6 +55,26 @@ li a:hover {
 			</span>
 		</form>
 		<div>
+			{% if (emailEmpty == '1') %}
+				<h1><font color="red">Email empty, you must input an email</font></h1>
+			{% endif %}
+		</div>
+		<div>
+			{% if (usernameEmpty == '1') %}
+				<h1><font color="red">Username empty, you must input a username</font></h1>
+			{% endif %}
+		</div>
+		<div>
+			{% if (FirstEmpty == '1') %}
+				<h1><font color="red">First Name empty, you must input a First Name</font></h1>
+			{% endif %}
+		</div>
+		<div>
+			{% if (LastEmpty == '1') %}
+				<h1><font color="red">Last Name empty, you must input a Last Name</font></h1>
+			{% endif %}
+		</div>
+		<div>
 			{% if (emailInvalid == '1') %}
 				<h1><font color="red">Email invalid, must contain '@'</font></h1>
 			{% endif %}

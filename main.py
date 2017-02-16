@@ -125,9 +125,21 @@ def create_new_user():
 		user = request.form.get('username')
 		first = request.form.get('firstName')
 		last = request.form.get('lastName')
+		emailEmpty = 0
+		usernameEmpty = 0
+		FirstEmpty = 0
+		LastEmpty = 0
 		emailInvalid = 0
 		emailTaken = 0
 		usernameTaken = 0
+		if not email:
+			emailEmpty = 1
+		if not username:
+			usernameEmpty = 1
+		if not first:
+			FirstEmpty = 1
+		if not last:
+			LastEmpty = 1
 		if "@" not in email:
 			emailInvalid = 1
 		cursor = connection.cursor()
@@ -143,12 +155,16 @@ def create_new_user():
 		if res:
 			usernameTaken = 1
 		if (emailInvalid or emailTaken or usernameTaken):
-			return redirect( url_for('create_new_user', emailInvalid=emailInvalid, emailTaken=emailTaken, usernameTaken=usernameTaken))
+			return redirect( url_for('create_new_user', emailEmpty=emailEmpty, usernameEmpty=usernameEmpty, FirstEmpty=FirstEmpty, LastEmpty=LastEmpty, emailInvalid=emailInvalid, emailTaken=emailTaken, usernameTaken=usernameTaken))
 		return redirect( url_for('new_user_page',email=email, username=user, first=first, last=last))
+	emailEmpty = request.args.get('emailEmpty')
+	usernameEmpty = request.args.get('usernameEmpty')
+	FirstEmpty = request.args.get('FirstEmpty')
+	LastEmpty = request.args.get('LastEmpty')
 	emailInvalid = request.args.get('emailInvalid')
 	emailTaken = request.args.get('emailTaken')
 	usernameTaken = request.args.get('usernameTaken')
-	return render_template('createUser.html',emailInvalid=emailInvalid, emailTaken=emailTaken, usernameTaken=usernameTaken)
+	return render_template('createUser.html', emailEmpty=emailEmpty, usernameEmpty=usernameEmpty, FirstEmpty=FirstEmpty, LastEmpty=LastEmpty, emailInvalid=emailInvalid, emailTaken=emailTaken, usernameTaken=usernameTaken)
 	
 
 @app.route('/new_user')
