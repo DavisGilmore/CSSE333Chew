@@ -44,6 +44,11 @@ li a:hover {
 		</form>
 		<h2> </h2>
 	</center>
+	<h1>Tools</h1>
+		{% for tool in tools %}
+			<h4>{{tool[0]}}</h4>
+		{% endfor %}
+		
 	<h1> Ingredients </h1>
 		{% for ingredient in ingredients %}
 			<h4>{{ingredient[0]}}&nbsp&nbsp{{ingredient[2]}}&nbsp&nbsp{{ingredient[3]}}&nbsp&nbsp{{ingredient[1]}}</h4>   <!--Ingredient name, Ingredient Unit, Amounnt, and Additional Discription-->
