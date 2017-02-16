@@ -46,7 +46,7 @@ def display_recipe():
 			query = ("EXEC get_recipe_name" + "'" + recipeID + "'")
 			cursor.execute(query)
 			recipe_name = cursor.fetchall()
-			return redirect( url_for('favors_exists', recipeName=recipe_name[0], recipeID=recipeID, email=email))
+			return redirect( url_for('already_favors', recipeName=recipe_name[0], recipeID=recipeID, email=email))
 		cursor = connection.cursor()
 		query = ("EXEC favors " + "'" + email + "', '" + recipeID + "'")
 		cursor.execute(query)
