@@ -145,7 +145,10 @@ def create_new_user():
 		if (emailInvalid or emailTaken or usernameTaken):
 			return redirect( url_for('create_new_user', emailInvalid=emailInvalid, emailTaken=emailTaken, usernameTaken=usernameTaken))
 		return redirect( url_for('new_user_page',email=email, username=user, first=first, last=last))
-	return render_template('createUser.html')
+	emailInvalid = request.args.get('emailInvalid')
+	emailTaken = request.args.get('emailTaken')
+	usernameTaken = request.args.get('usernameTaken')
+	return render_template('createUser.html',emailInvalid=emailInvalid, emailTaken=emailTaken, usernameTaken=usernameTaken)
 	
 
 @app.route('/new_user')
