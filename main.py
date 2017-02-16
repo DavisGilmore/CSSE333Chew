@@ -134,7 +134,7 @@ def create_new_user():
 		usernameTaken = 0
 		if not email:
 			emailEmpty = 1
-		if not username:
+		if not user:
 			usernameEmpty = 1
 		if not first:
 			FirstEmpty = 1
